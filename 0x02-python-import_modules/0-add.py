@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 
 def main():
+    """My Main Function
+    To use the add function
+    """
     from add_0 import add
     a = 1
     b = 2
