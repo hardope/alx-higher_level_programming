@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 
-# Check if file is called so as not to run when imported
 if __name__ == "__main__":
     from calculator_1 import add, sub, mul, div
     a = 10
