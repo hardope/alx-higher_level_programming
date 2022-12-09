@@ -3,3 +3,7 @@
 * If else conditions
 * Loops
 * Functions
+* Import Modules
+* Data Structures
+    * Tuples
+    * Lists
