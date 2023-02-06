@@ -1,0 +1,90 @@
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+
+>>> modulo_doc = __import__('7-base_geometry').__doc__
+>>> print(len(modulo_doc) > 0)
+True
+
+>>> class_doc = __import__('7-base_geometry').BaseGeometry.__doc__
+>>> print(len(class_doc) > 0)
+True
+
+>>> area_doc = __import__('7-base_geometry').BaseGeometry.area.__doc__
+>>> print(len(area_doc) > 0)
+True
+
+>>> validate_doc = __import__('7-base_geometry').BaseGeometry.integer_validator.__doc__
+>>> print(len(validate_doc) > 0)
+True
+
+>>> bg.integer_validator("my_int", 12)
+>>>
+
+>>> bg.integer_validator("width", 89)
+>>>
+
+>>> bg.integer_validator("uno", 0)
+Traceback (most recent call last):
+...
+ValueError: uno must be greater than 0
+
+>>> bg.integer_validator("dos", -1)
+Traceback (most recent call last):
+...
+ValueError: dos must be greater than 0
+
+>>> bg.integer_validator("tres", [])
+Traceback (most recent call last):
+...
+TypeError: tres must be an integer
+
+>>> bg.integer_validator("cuatro", {})
+Traceback (most recent call last):
+...
+TypeError: cuatro must be an integer
+
+>>> bg.integer_validator("cinco", (1, 0))
+Traceback (most recent call last):
+...
+TypeError: cinco must be an integer
+
+>>> bg.integer_validator("seis", "")
+Traceback (most recent call last):
+...
+TypeError: seis must be an integer
+
+>>> bg.integer_validator("siete", 5.2)
+Traceback (most recent call last):
+...
+TypeError: siete must be an integer
+
+>>> bg.integer_validator("ocho", 5j)
+Traceback (most recent call last):
+...
+TypeError: ocho must be an integer
+
+>>> bg.integer_validator("nueve", float('nan'))
+Traceback (most recent call last):
+...
+TypeError: nueve must be an integer
+
+>>> bg.integer_validator("diez", float('inf'))
+Traceback (most recent call last):
+...
+TypeError: diez must be an integer
+
+>>> bg.integer_validator("once", 100e319)
+Traceback (most recent call last):
+...
+TypeError: once must be an integer
+
+>>> bg.integer_validator("doce", -5.2)
+Traceback (most recent call last):
+...
+TypeError: doce must be an integer
+
+>>> bg.integer_validator("trece", 0b010101)
+>>>
+
+>>> bg.integer_validator("catorce", 0xAF56)
+>>>

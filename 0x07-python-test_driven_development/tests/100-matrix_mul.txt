@@ -1,0 +1,124 @@
+This is a test for the matrix_mul function
+
+
+#importing functions
+>>> import sys
+>>> sys.path.insert(1, './')
+>>> func = __import__('100-matrix_mul').matrix_mul
+>>> m1 = [[1,2,3],[4,5,6],[7,8,9]]
+>>> m2 = [[1,2],[4,5,6],[8,9]]
+>>> m3 = [[1,2],[3,4],[5,6],[7,8]]
+>>> m4 = [[1,-2,3],[4.5,5, ""],[7,8,9]]
+>>> m5 = [[1,2,3],[4,5, 6.7],[7,8,9]]
+>>> m6 = [[1,2,3,4,5,6,7],[8,9,10,11,12,13,14]]
+>>> m7 = [1,2,3]
+>>> m8 = []
+>>> m9 = [[]]
+
+#Type checks
+>>> func("", m1)
+Traceback (most recent call last):
+...
+TypeError: m_a must be a list
+>>> func(9, m1)
+Traceback (most recent call last):
+...
+TypeError: m_a must be a list
+>>> func(6.7, m1)
+Traceback (most recent call last):
+...
+TypeError: m_a must be a list
+>>> func({}, m1)
+Traceback (most recent call last):
+...
+TypeError: m_a must be a list
+>>> func(set(), m1)
+Traceback (most recent call last):
+...
+TypeError: m_a must be a list
+>>> func(m1, "")
+Traceback (most recent call last):
+...
+TypeError: m_b must be a list
+>>> func(m1, 9)
+Traceback (most recent call last):
+...
+TypeError: m_b must be a list
+>>> func(m1, 9.9)
+Traceback (most recent call last):
+...
+TypeError: m_b must be a list
+>>> func(m1, {})
+Traceback (most recent call last):
+...
+TypeError: m_b must be a list
+>>> func(m1, set())
+Traceback (most recent call last):
+...
+TypeError: m_b must be a list
+
+
+>>> func(m7, m1)
+Traceback (most recent call last):
+...
+TypeError: m_a must be a list of lists
+>>> func(m1, m7)
+Traceback (most recent call last):
+...
+TypeError: m_b must be a list of lists
+
+#Value Errors
+>>> func(m8, m1)
+Traceback (most recent call last):
+...
+ValueError: m_a can't be empty
+
+>>> func(m9, m1)
+Traceback (most recent call last):
+...
+ValueError: m_a can't be empty
+
+>>> func(m1, m8)
+Traceback (most recent call last):
+...
+ValueError: m_b can't be empty
+
+>>> func(m1, m8)
+Traceback (most recent call last):
+...
+ValueError: m_b can't be empty
+
+#Type Errors
+
+>>> func(m4, m1)
+Traceback (most recent call last):
+...
+TypeError: m_a should contain only integers or floats
+>>> func(m1, m4)
+Traceback (most recent call last):
+...
+TypeError: m_b should contain only integers or floats
+
+>>> func(m2, m4)
+Traceback (most recent call last):
+...
+TypeError: each row of m_a must be of the same size
+
+
+>>> func(m1, m2)
+Traceback (most recent call last):
+...
+TypeError: each row of m_b must be of the same size
+
+# Value Error
+>>> func(m1, m6)
+Traceback (most recent call last):
+...
+ValueError: m_a and m_b can't be multiplied
+
+
+#Normal tests
+>>> func(m1, m1) #doctest: +NORMALIZE_WHITESPACE
+[[30, 36, 42], [66, 81, 96], [102, 126, 150]]
+>>> func(m3, m6) #doctest: +NORMALIZE_WHITESPACE
+[[17,  20, 23,    26, 29, 32, 35], [35, 42, 49, 56, 63, 70, 77], [53, 64, 75, 86, 97, 108, 119], [71, 86, 101, 116, 131, 146, 161]]
