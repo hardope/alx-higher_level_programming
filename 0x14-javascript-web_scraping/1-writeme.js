@@ -1,5 +1,4 @@
 #!/usr/bin/node
-// write string to file
 
 const fs = require('fs');
 const argv = process.argv;
