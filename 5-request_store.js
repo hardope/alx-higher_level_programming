@@ -1,10 +1,10 @@
 #!/usr/bin/node
-// Lorem ipsum
+//lorem ipsum
 
 const request = require('request');
 const fs = require('fs');
 
-request.get(process.argv[2], function (error, body) {
+request.get(process.argv[2], (error, response, body) => {
   if (error) {
     console.log(error);
   } else {
