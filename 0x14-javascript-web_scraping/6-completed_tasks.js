@@ -3,9 +3,8 @@
 // jsonplaceholder.typicode.com API
 
 const request = require('request');
-const url = process.argv[2];
 
-request(url, function (err, res, body) {
+request(process.argv[2], function (err, body) {
   if (err) {
     console.log(err);
   }
