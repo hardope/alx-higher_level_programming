@@ -1,23 +1,23 @@
 #!/usr/bin/node
-// Computes tasks completed by user id from
+// web scrapper
 
 const request = require('request');
-const url = process.argv[2];
 
-request(url, function (err, res, body) {
-  if (err) {
-    console.log(err);
+request.get(process.argv[2], { json: true }, (error, response, body) => {
+  if (error) {
+    console.log(error);
+    return;
   }
-  let tasks = JSON.parse(body);
-  let obj = {};
-  for (let task of tasks) {
-    if (task.completed === true) {
-      if (obj[task.userId] === undefined) {
-        obj[task.userId] = 1;
+
+  const tasksCompleted = {};
+  body.forEach((todo) => {
+    if (todo.completed) {
+      if (!tasksCompleted[todo.userId]) {
+        tasksCompleted[todo.userId] = 1;
       } else {
-        obj[task.userId]++;
+        tasksCompleted[todo.userId] += 1;
       }
     }
-  }
-  console.log(obj);
+  });
+  console.log(tasksCompleted);
 });
