@@ -1,6 +1,5 @@
 #!/usr/bin/node
 // Computes tasks completed by user id from
-// jsonplaceholder.typicode.com API
 
 const request = require('request');
 const url = process.argv[2];
